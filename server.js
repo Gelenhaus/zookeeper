@@ -3,6 +3,11 @@
 //We must require express in order to use it.
 const express = require('express');
 
+//process.env.PORT is a environment variable.
+// We are telling our app that we want to use
+// our 3001 port and if not, default to port 80.
+const PORT = process.env.PORT || 3001;
+
 //We must instantiate the server by making it a function.
 const app = express();
 //We must require some data in order to then make a route.
@@ -58,6 +63,6 @@ app.get('/api/animals', (req, res) => {
 });
 
 //We must add this listen method to make our server listen.
-app.listen(3001, () => {
-    console.log(`API server now on port 3001!`);
+app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}`);
 });
